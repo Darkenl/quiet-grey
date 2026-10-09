@@ -4,11 +4,27 @@
 
 **A quiet, charcoal Discord theme built around simple white symbols.**
 
-`#202020` Â· `Tahoma` Â· `No interface animations` Â· `Vencord`
+`#202020` · `Tahoma` · `No interface animations` · `Vencord`
 
-[Theme](Quiet-Grey.theme.css) Â· [Plugins](plugins) Â· [JavaScript](javascript) Â· [Installation](#installation)
+[Theme](Quiet-Grey.theme.css) · [Plugins](plugins) · [JavaScript](javascript) · [Installation](#installation) · [Video](#video-showcase)
 
 </div>
+
+---
+
+## Video showcase
+
+<div align="center">
+
+[![Watch the Quiet Grey showcase](assets/Quiet-Grey-review-cover.png)](https://github.com/Darkenl/quiet-grey/raw/refs/heads/main/assets/Quiet-Grey-review.mp4)
+
+**[▶ Watch / download the video](https://github.com/Darkenl/quiet-grey/raw/refs/heads/main/assets/Quiet-Grey-review.mp4)**
+
+`35 seconds` · `720p` · `Captions` · `No voice`
+
+</div>
+
+An illustrated walkthrough of the charcoal palette, white symbols, compact call controls, profile fade, and static interface. The views are recreated theme artwork rather than a live Discord recording.
 
 ---
 
@@ -19,10 +35,11 @@ Quiet Grey keeps Discord visually calm: charcoal surfaces, compact controls, squ
 | Detail | Treatment |
 | --- | --- |
 | Folder closed / open | `[ ]` / `]  [` |
-| Text, forum, welcome, announcements | `â€¢` |
-| Age-restricted / voice channels | `âš ` / `ðŸžš` |
-| Invite / pinned messages | `+` / `âœ©` |
-| Mute / deafen / disconnect | `M` / `D` / `Ã—` |
+| Text, forum, welcome, announcements | `•` |
+| Age-restricted / voice channels | `⚠` / `🞚` |
+| Invite / pinned messages | `+` / `✩` |
+| Mute / deafen / disconnect | `M` / `D` / `×` |
+| Add Server / Discover | `+` / hidden |
 | Notifications | White counts on charcoal square badges |
 | Presence | Static color tint inside the avatar's lower edge |
 | Voice connection | Compact bar beneath the message input, numeric ping |
@@ -35,7 +52,7 @@ The theme hides member-list activity, offline members, Events, Server Boosts, an
 
 1. Install [Vencord](https://vencord.dev/) and select Discord's dark appearance.
 2. Download [Quiet-Grey.theme.css](Quiet-Grey.theme.css).
-3. Paste its contents into **Settings â†’ Vencord â†’ Themes â†’ QuickCSS**, and enable Custom CSS.
+3. Paste its contents into **Settings → Vencord → Themes → QuickCSS**, and enable Custom CSS.
 
 The CSS also works with theme loaders that support `.theme.css`, but the companion plugins require Vencord. The call-bar layout and avatar presence tint need their matching plugins.
 
@@ -63,6 +80,13 @@ powershell -NoProfile -File .\Sync-Quiet-Grey.ps1
 ```
 
 This replaces the contents of Vencord's QuickCSS file. Back up any existing custom CSS first. The watcher runs until the process is stopped; it doesn't install a startup task itself.
+
+## Latest refinements
+
+- Simple white `+` for Add Server; Discover is fully hidden.
+- Server scrolling ends above the profile fade.
+- Local profile fades upward from `#202020` to transparent.
+- Native speaking rings are hidden to preserve square avatars.
 
 ## Notes
 
