@@ -6,21 +6,21 @@
 
 `#202020` · `Tahoma` · `No interface animations` · `Vencord`
 
-[Theme](Quiet-Grey.theme.css) · [Plugins](plugins) · [JavaScript](javascript) · [Installation](#installation) · [Video](#video-showcase)
+[Theme](Quiet-Grey.theme.css) · [Plugins](plugins) · [JavaScript](javascript) · [Installation](#installation) · [Showcase](#gif-showcase)
 
 </div>
 
 ---
 
-## Video showcase
+## GIF showcase
 
 <div align="center">
 
-[![Watch the Quiet Grey showcase](assets/Quiet-Grey-review-cover.png)](https://github.com/Darkenl/quiet-grey/raw/refs/heads/main/assets/Quiet-Grey-review.mp4)
+![Quiet Grey animated showcase](assets/Quiet-Grey-review.gif)
 
-**[▶ Watch / download the video](https://github.com/Darkenl/quiet-grey/raw/refs/heads/main/assets/Quiet-Grey-review.mp4)**
+[Download GIF](assets/Quiet-Grey-review.gif)
 
-`35 seconds` · `720p` · `Captions` · `No voice`
+`35-second loop` · `Captions` · `No audio`
 
 </div>
 
