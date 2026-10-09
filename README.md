@@ -66,7 +66,7 @@ For each desired file in `plugins/`, create a matching folder in your Vencord ch
 | --- | --- | --- |
 | QuietBottomBar | Aligns call controls beneath chat and adds numeric latency | Enabled |
 | QuietStaticStatus | Maps native presence states to the avatar tint | Enabled |
-| QuietAvatarSettings | Opens client account settings from the local avatar | Enabled |
+| QuietAvatarSettings | Opens client account settings from the local avatar and randomizes kaomoji on hover | Enabled |
 | QuietLetterLight | Optional letter-by-letter speaking-name effect | **Disabled** in the static preset |
 
 `javascript/` contains readable JavaScript versions of the same plugins. The TypeScript files are the canonical installation sources; don't install both versions of a plugin.
@@ -82,6 +82,11 @@ powershell -NoProfile -File .\Sync-Quiet-Grey.ps1
 This replaces the contents of Vencord's QuickCSS file. Back up any existing custom CSS first. The watcher runs until the process is stopped; it doesn't install a startup task itself.
 
 ## Latest refinements
+
+- Eight kaomoji expressions chosen randomly on hover, without immediate repeats.
+- Composer symbols and voice controls have adjusted visual alignment.
+- Windows accent colors for connection text, active sharing, and gift controls. The Windows sync script reads the DWM accent and refreshes it automatically.
+
 
 - Simple white `+` for Add Server; Discover is fully hidden.
 - Server scrolling ends above the profile fade.

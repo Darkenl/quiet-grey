@@ -1874,3 +1874,97 @@ html[data-quiet-bottom-bar] #app-mount .panels__5e434 > .activityPanel__5e434 bu
 #app-mount .listItemWrapper__91816:has(.discoveryIcon_ef3116) {
     display: none !important;
 }
+
+/* Kaomoji composer button; native hover and picker handlers stay intact. */
+#app-mount .emojiButton__74017 {
+    position: relative !important;
+    min-width: 68px !important;
+    width: 68px !important;
+    padding-inline: 4px !important;
+}
+#app-mount .emojiButton__74017 .spriteContainer__04eed {
+    opacity: 0 !important;
+}
+#app-mount .emojiButton__74017::after {
+    content: "(•‿•)";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 14px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: #dedede;
+    white-space: nowrap;
+    pointer-events: none;
+}
+#app-mount .emojiButton__74017:hover::after,
+#app-mount .emojiButton__74017:focus-visible::after {
+    content: "(≧◡≦)";
+    color: #fff;
+}
+
+/* Keep composer symbols centered on one baseline with even control spacing. */
+#app-mount .buttons__74017 {
+    align-items: center !important;
+    gap: 4px !important;
+}
+#app-mount .buttons__74017 .buttonContainer__74017 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    height: 32px !important;
+}
+#app-mount .buttons__74017 .button__74017 {
+    height: 32px !important;
+    min-height: 32px !important;
+    margin: 0 !important;
+    align-self: center !important;
+}
+#app-mount .emojiButton__74017 {
+    width: 76px !important;
+    min-width: 76px !important;
+}
+#app-mount .emojiButton__74017::after {
+    font-size: 13px !important;
+    line-height: 32px !important;
+}
+#app-mount .emojiButton__74017[data-quiet-kaomoji]:hover::after,
+#app-mount .emojiButton__74017[data-quiet-kaomoji]:focus-visible::after {
+    content: attr(data-quiet-kaomoji) !important;
+}
+
+/* Optical alignment: center the rendered glyphs, not only their hit boxes. */
+#app-mount .buttons__74017 .button__74017::after {
+    top: 50% !important;
+    bottom: auto !important;
+    height: 20px !important;
+    line-height: 20px !important;
+    transform: translateY(calc(-50% + var(--quiet-glyph-offset, 0px))) !important;
+}
+#app-mount .buttons__74017 [aria-label="Open GIF picker"] { --quiet-glyph-offset: 1px; }
+#app-mount .buttons__74017 .stickerButton__74017 { --quiet-glyph-offset: -1px; }
+#app-mount .buttons__74017 .emojiButton__74017 { --quiet-glyph-offset: -2px; }
+#app-mount .buttons__74017 [aria-label="Apps"] { --quiet-glyph-offset: 1px; }
+html[data-quiet-bottom-bar] #app-mount .container__37e49 .audioButtonParent__5e764 {
+    bottom: 8px !important;
+}
+#app-mount .actionButtons_e131a9 > button::after {
+    font-size: 16px !important;
+    line-height: 16px !important;
+}
+
+/* Windows accent is supplied and refreshed by Sync-Quiet-Grey.ps1. */
+:root {
+    --quiet-windows-accent: #8e8cd8;
+}
+#app-mount {
+    --brand-500: var(--quiet-windows-accent) !important;
+    --brand-560: var(--quiet-windows-accent) !important;
+    --text-brand: var(--quiet-windows-accent) !important;
+}
+#app-mount .rtcConnectionStatusConnected__06d62,
+#app-mount .actionButtons_e131a9 > .buttonActive_e131a9,
+#app-mount .buttons__74017 [aria-label="Send a gift"]::after {
+    color: var(--quiet-windows-accent) !important;
+}

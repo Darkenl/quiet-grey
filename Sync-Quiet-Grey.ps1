@@ -16,8 +16,15 @@ try {
                 $hashProvider = [Security.Cryptography.SHA256]::Create()
                 try { $sourceHash = [BitConverter]::ToString($hashProvider.ComputeHash($sourceBytes)) }
                 finally { $hashProvider.Dispose() }
+                $accentValue = (Get-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows\DWM' -Name AccentColor -ErrorAction Stop).AccentColor
+                # DWM AccentColor stores its channels as AABBGGRR.
+                $accentNumber = [uint32]$accentValue
+                $accentHex = '#{0:x2}{1:x2}{2:x2}' -f ($accentNumber -band 255), (($accentNumber -shr 8) -band 255), (($accentNumber -shr 16) -band 255)
+                $sourceHash += $accentHex
                 if ($sourceHash -ne $lastHash) {
-                    [IO.File]::WriteAllBytes($Target, $sourceBytes)
+                    $accentCss = "`n:root { --quiet-windows-accent: $accentHex !important; }`n"
+                    $accentBytes = [Text.Encoding]::UTF8.GetBytes($accentCss)
+                    [IO.File]::WriteAllBytes($Target, [byte[]]($sourceBytes + $accentBytes))
                     $lastHash = $sourceHash
                 }
             }
