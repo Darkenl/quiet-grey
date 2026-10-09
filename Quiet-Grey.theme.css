@@ -1881,3 +1881,11 @@ html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"
     color: #ffffff;
     pointer-events: none;
 }
+
+/* New Discord presence badges use dynamic masks inside a nested SVG group. */
+#app-mount .wrapper__44b0c > svg.mask__44b0c > g {
+    display: none !important;
+}
+#app-mount .wrapper__44b0c > svg.mask__44b0c > foreignObject {
+    mask: none !important;
+}
