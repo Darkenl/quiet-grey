@@ -1,15 +1,20 @@
 /* SPDX-License-Identifier: GPL-3.0-or-later */
 import definePlugin from "@utils/types";
 
-const STATUS = 'svg[class*="mask_"] rect[mask*="status"]';
+const STATUS = 'svg[class*="mask_"] rect[mask*="status"], .wrapper__44b0c[role="img"][aria-label]';
 const marked = new Set<HTMLElement>();
 let observer: MutationObserver | undefined;
 
 function mark(node: Element) {
     const svg = node.closest('svg[class*="mask_"]');
-    const host = svg?.parentElement;
+    const host = node.matches('.wrapper__44b0c') ? node as HTMLElement : svg?.parentElement;
     if (!host) return;
-    const state = node.getAttribute("mask")?.match(/status-(online|idle|dnd|offline|streaming)/)?.[1];
+    const label = host.getAttribute("aria-label") ?? "";
+    const state = node.getAttribute("mask")?.match(/status-(online|idle|dnd|offline|streaming)/)?.[1]
+        ?? (/[,，]\s*(?:Do Not Disturb|DND|Не беспокоить)\s*$/i.test(label) ? "dnd"
+            : /[,，]\s*(?:Idle|Не активен|Неактивен)\s*$/i.test(label) ? "idle"
+                : /[,，]\s*(?:Invisible|Offline|Невидимый|Не в сети)\s*$/i.test(label) ? "offline"
+                    : /[,，]\s*(?:Online|В сети)\s*$/i.test(label) ? "online" : undefined);
     if (!state) return;
     if (host.dataset.quietStatus !== state) host.dataset.quietStatus = state;
     marked.add(host);
@@ -34,7 +39,7 @@ export default definePlugin({
                 }
                 if (record.target instanceof Element) {
                     const svg = record.target.closest('svg[class*="mask_"]');
-                    if (svg && !svg.querySelector('rect[mask*="status"]')) {
+                    if (svg && !svg.querySelector('rect[mask*="status"]') && !svg.parentElement?.matches('.wrapper__44b0c[aria-label]')) {
                         svg.parentElement?.removeAttribute("data-quiet-status");
                     }
                 }
@@ -42,7 +47,7 @@ export default definePlugin({
             }
             for (const host of marked) if (!host.isConnected) marked.delete(host);
         });
-        observer.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ["mask"] });
+        observer.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ["mask", "aria-label"] });
     },
     stop() {
         observer?.disconnect();
