@@ -1817,3 +1817,28 @@ html[data-quiet-bottom-bar] #app-mount .panels__5e434 > .activityPanel__5e434 bu
     border-color: transparent !important;
     box-shadow: none !important;
 }
+
+/* A broad bottom fade behind the local profile, rather than a tinted card. */
+#app-mount .panels__5e434 > .container__37e49 {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    isolation: isolate;
+}
+#app-mount .panels__5e434 > .container__37e49::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    height: 160px;
+    background: linear-gradient(to top, #202020 0%, #202020 30%, rgba(32, 32, 32, .85) 55%, rgba(32, 32, 32, 0) 100%) !important;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Keep the native speaking ring from covering the square status glow. */
+#app-mount .avatarBorder__44b0c {
+    display: none !important;
+}
+
