@@ -1,0 +1,1883 @@
+/**
+ * @name Quiet Grey
+ * @author Darken
+ * @version 5.0.7
+ * @description Minimal charcoal Discord theme. Unified gray surfaces, subtle depth, neutral accents, restrained corners, and readable controls.
+ */
+:root {
+    --quiet-canvas: #202020;
+    --quiet-sidebar: #202020;
+    --quiet-raised: #242424;
+    --quiet-text: #dedede;
+    --quiet-muted: #a0a0a0;
+}
+
+:root,
+.theme-dark,
+.theme-darker,
+.theme-midnight {
+    color-scheme: dark;
+    --background-primary: var(--quiet-canvas);
+    --background-secondary: var(--quiet-sidebar);
+    --background-secondary-alt: #202020;
+    --background-tertiary: #202020;
+    --background-floating: var(--quiet-raised);
+    --background-accent: #292929;
+    --background-base-lowest: #202020;
+    --background-base-lower: var(--quiet-sidebar);
+    --background-base-low: var(--quiet-canvas);
+    --background-surface-high: var(--quiet-raised);
+    --background-surface-higher: #272727;
+    --background-surface-highest: #2a2a2a;
+    --bg-base-primary: var(--quiet-canvas);
+    --bg-base-secondary: var(--quiet-sidebar);
+    --bg-base-tertiary: #202020;
+    --bg-surface-overlay: var(--quiet-raised);
+    --bg-surface-raised: var(--quiet-raised);
+    --background-modifier-hover: #ffffff08;
+    --background-modifier-active: #ffffff10;
+    --background-message-hover: #ffffff04;
+    --background-mentioned: #ffffff08;
+    --background-mentioned-hover: #ffffff0d;
+    --background-message-highlight: #ffffff0a;
+    --background-message-highlight-hover: #ffffff10;
+    --channeltextarea-background: var(--quiet-raised);
+    --chat-background: var(--quiet-canvas);
+    --textbox-markdown-syntax: var(--quiet-muted);
+    --text-normal: var(--quiet-text);
+    --text-primary: var(--quiet-text);
+    --text-secondary: #b6b6b6;
+    --text-muted: var(--quiet-muted);
+    --text-default: var(--quiet-text);
+    --header-primary: #ededed;
+    --header-secondary: #b6b6b6;
+    --channels-default: #a8a8a8;
+    --channel-icon: #a0a0a0;
+    --icon-primary: #cecece;
+    --icon-secondary: #a8a8a8;
+    --icon-tertiary: #909090;
+    --interactive-normal: #b6b6b6;
+    --interactive-hover: #eeeeee;
+    --interactive-active: #ffffff;
+    --interactive-muted: #777777;
+    --text-link: #d0d0d0;
+    --text-link-low-saturation: #d0d0d0;
+    --text-brand: #d0d0d0;
+    --brand-260: #eeeeee;
+    --brand-360: #cccccc;
+    --brand-400: #b8b8b8;
+    --brand-500: #747474;
+    --brand-530: #686868;
+    --brand-560: #5e5e5e;
+    --brand-600: #555555;
+    --brand-700: #444444;
+    --control-brand-foreground: #d0d0d0;
+    --control-brand-foreground-new: #d0d0d0;
+    --button-filled-brand-background: #454545;
+    --button-filled-brand-background-hover: #505050;
+    --button-filled-brand-background-active: #3e3e3e;
+    --button-filled-brand-text: #ffffff;
+    --button-secondary-background: #292929;
+    --button-secondary-background-hover: #333333;
+    --button-secondary-background-active: #262626;
+    --button-secondary-text: #ededed;
+    --input-background: #242424;
+    --background-mod-subtle: #ffffff06;
+    --background-mod-normal: #ffffff0b;
+    --background-mod-strong: #ffffff14;
+    --background-modifier-selected: #ffffff14;
+    --scrollbar-thin-thumb: #474747;
+    --scrollbar-thin-track: transparent;
+    --scrollbar-auto-thumb: #474747;
+    --scrollbar-auto-track: transparent;
+    --scrollbar-auto-scrollbar-color-thumb: #474747;
+    --scrollbar-auto-scrollbar-color-track: transparent;
+    --modal-background: var(--quiet-canvas);
+    --modal-footer-background: var(--quiet-sidebar);
+    --activity-card-background: var(--quiet-raised);
+    --deprecated-card-bg: #ffffff05;
+    --deprecated-card-editable-bg: #242424;
+    --radius-xs: 3px;
+    --radius-sm: 4px;
+    --radius-md: 5px;
+    --radius-lg: 6px;
+    --radius-xl: 6px;
+    --radius-xxl: 8px;
+    --shadow-low: 0 1px 2px #00000014;
+    --shadow-medium: 0 2px 6px #00000020;
+    --shadow-high: 0 6px 20px #00000035;
+}
+:where([class*="chat_"], [class*="sidebar_"], [class*="membersWrap_"],
+       [class*="panels_"], [class*="container_"][class*="themed_"]) {
+    box-shadow: none !important !important;
+}
+:where([class*="channelTextArea_"], [class*="embedFull_"], [class*="searchBar_"]) {
+    border-radius: 5px !important;
+    box-shadow: none !important !important;
+}
+:where([class*="content_"] > [class*="divider_"]) {
+    opacity: .75;
+}
+:where([class*="channelTextArea_"], [class*="embedFull_"], [class*="searchBar_"] ) {
+    box-shadow: none !important !important;
+}
+:where([class*="menu_"], [class*="tooltip_"] ) {
+    box-shadow: none !important !important;
+}
+:where([class*="messageContent_"]) a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+:where([class*="mentioned_"])::before {
+    background: #aaaaaa !important;
+}
+::selection { background: #666666; color: #ffffff; }
+:root,
+.theme-dark,
+.theme-darker,
+.theme-midnight {
+    --font-primary: Tahoma, sans-serif;
+    --font-display: Tahoma, sans-serif;
+    --font-headline: Tahoma, sans-serif;
+    --input-border: transparent;
+}
+body, input, textarea, button, select {
+    font-family: Tahoma, sans-serif;
+}
+:where([class*="chat_"], [class*="sidebar_"], [class*="membersWrap_"],
+       [class*="panels_"], [class*="container_"][class*="themed_"],
+       [class*="channelTextArea_"], [class*="embedFull_"], [class*="searchBar_"],
+       [class*="content_"], [class*="chatContent_"], [class*="base_"],
+       [class*="title_"], [class*="container_"][class*="menu_"]) {
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+:where([class*="content_"])::before {
+    box-shadow: none !important;
+    background: transparent !important;
+}
+:where([class*="menu_"], [class*="tooltip_"]) {
+    border-color: transparent !important;
+    box-shadow: none !important !important;
+}
+:where([class*="sidebar_"], [class*="sidebarList_"], [class*="sidebarListRounded_"],
+       [class*="guilds_"], [class*="header_"], [class*="panels_"],
+       [class*="privateChannels_"], [class*="chat_"], [class*="page_"],
+       [class*="title_"], [class*="subtitleContainer_"], [class*="bar_"]) {
+    border-color: transparent !important;
+    box-shadow: none !important;
+
+}
+:where([class*="sidebar_"], [class*="sidebarList_"], [class*="guilds_"],
+       [class*="panels_"], [class*="privateChannels_"], [class*="header_"]) {
+    background-color: var(--quiet-canvas) !important;
+}
+:where([class*="sidebarList_"], [class*="sidebarListRounded_"]) {
+    border-radius: 0 !important;
+}
+:where([class*="sidebar_"], [class*="sidebarList_"], [class*="header_"],
+       [class*="panels_"], [class*="guilds_"])::before,
+:where([class*="sidebar_"], [class*="sidebarList_"], [class*="header_"],
+       [class*="panels_"], [class*="guilds_"])::after {
+    border-color: transparent !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+:where([class*="guildSeparator_"]) {
+    background: transparent !important;
+}
+:where([class*="tutorialContainer_"]) [class*="childWrapper_"] {
+    position: relative;
+    background: var(--quiet-canvas) !important;
+    color: var(--quiet-text) !important;
+}
+:where([class*="tutorialContainer_"]) [class*="childWrapper_"] > svg {
+    visibility: hidden !important;
+}
+:where([class*="tutorialContainer_"]) [class*="childWrapper_"]::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #a8a8a8;
+    border-radius: 50%;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+:where([class*="tutorialContainer_"]):hover [class*="childWrapper_"]::after {
+    border-color: #e0e0e0;
+}
+:root, .theme-dark, .theme-darker, .theme-midnight {
+    --app-frame-border: transparent;
+    --app-border-frame: transparent;
+    --border-faint: transparent;
+    --border-subtle: transparent;
+    --border-normal: transparent;
+    --border-strong: transparent;
+    --background-modifier-accent: transparent;
+}
+:where([class*="bar_"], [class*="titleBar_"], [class*="titlebar_"],
+       [class*="trailing_"], [class*="app_"], [class*="appAsidePanelWrapper_"],
+       [class*="base_"], [class*="content_"], [class*="sidebarResizeHandle_"]) {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+:where([class*="bar_"], [class*="titleBar_"], [class*="titlebar_"],
+       [class*="base_"], [class*="appAsidePanelWrapper_"],
+       [class*="sidebarResizeHandle_"])::before,
+:where([class*="bar_"], [class*="titleBar_"], [class*="titlebar_"],
+       [class*="base_"], [class*="appAsidePanelWrapper_"],
+       [class*="sidebarResizeHandle_"])::after {
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+:where([class*="bar_"], [class*="titleBar_"], [class*="titlebar_"]) {
+    background-color: var(--quiet-canvas) !important;
+}
+#app-mount,
+#app-mount * {
+    border-color: transparent !important;
+    border-image: none !important;
+    box-shadow: none !important;
+}
+#app-mount *::before,
+#app-mount *::after {
+    border-color: transparent !important;
+    border-image: none !important;
+    box-shadow: none !important;
+}
+#app-mount [class*="tutorialContainer_"] [class*="childWrapper_"]::after {
+    border-color: #a8a8a8 !important;
+}
+#app-mount [class*="tutorialContainer_"]:hover [class*="childWrapper_"]::after {
+    border-color: #e0e0e0 !important;
+}
+#app-mount [class*="guildSeparator_"],
+#app-mount [class*="separator_"]:not([class*="unread"]),
+#app-mount [class*="sidebarResizeHandle_"] {
+    background: transparent !important;
+}
+#app-mount [class*="avatar_"],
+#app-mount [class*="avatarStack_"],
+#app-mount [class*="avatarWrapper_"],
+#app-mount [class*="avatarContainer_"],
+#app-mount [class*="avatar_"] img,
+#app-mount img[class*="avatar"],
+#app-mount [class*="avatarStack_"] img {
+    border-radius: 0 !important;
+}
+#app-mount [class*="avatar_"] foreignObject,
+#app-mount [class*="avatarStack_"] foreignObject,
+#app-mount [class*="avatarWrapper_"] foreignObject,
+#app-mount [class*="avatarContainer_"] foreignObject,
+#app-mount svg[class*="mask_"] foreignObject {
+    mask: none !important;
+    clip-path: none !important;
+    border-radius: 0 !important;
+}
+#app-mount [class*="member_"] [class*="name_"],
+#app-mount [class*="member_"] [class*="username_"],
+#app-mount [class*="member_"] [class*="roleColor_"],
+#app-mount [class*="message_"] [class*="username_"],
+#app-mount [class*="voiceUser_"] [class*="username_"] {
+    -webkit-text-fill-color: #eeeeee !important;
+    text-shadow: none !important;
+    background-image: none !important;
+}
+#app-mount [class*="member_"] [class*="layout_"] {
+    position: relative;
+}
+#app-mount [class*="member_"] [class*="roleColor_"]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    border-radius: 0;
+    background: var(--custom-gradient-color-1, currentColor) !important;
+    pointer-events: none;
+}
+#app-mount [class*="message_"] [class*="username_"],
+#app-mount [class*="message_"] [class*="headerText_"],
+#app-mount [class*="message_"] [class*="headerText_"] [class*="roleColor_"],
+#app-mount [class*="mentioned_"] [class*="username_"],
+#app-mount [class*="mentioned_"] [class*="headerText_"] {
+    background: transparent !important;
+    box-shadow: none !important;
+    -webkit-text-fill-color: #eeeeee !important;
+    text-shadow: none !important;
+}
+#app-mount [class*="message_"][class*="mentioned_"] {
+    background-color: var(--background-mentioned) !important;
+}
+#app-mount [class*="message_"][class*="mentioned_"]:hover {
+    background-color: var(--background-mentioned-hover) !important;
+}
+#app-mount [class*="message_"] [class*="header_"],
+#app-mount [class*="message_"] [class*="header_"]::before,
+#app-mount [class*="message_"] [class*="header_"]::after,
+#app-mount [class*="mentioned_"] [class*="header_"],
+#app-mount [class*="mentioned_"] [class*="contents_"],
+#app-mount [class*="mentioned_"] [class*="messageContent_"] {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+#app-mount [class*="membersWrap_"] [class*="layout_"],
+#app-mount [class*="members_"] [class*="member_"] [class*="layout_"] {
+    position: relative !important;
+}
+#app-mount [class*="member_"] [class*="name_"],
+#app-mount [class*="member_"] [class*="username_"],
+#app-mount [class*="member_"] [class*="roleColor_"] {
+    position: static !important;
+    -webkit-text-fill-color: #eeeeee !important;
+}
+#app-mount [class*="member_"] :is(
+    [class*="roleColor_"],
+    [class*="username_"][style*="color"],
+    [class*="name_"][style*="color"]
+)::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 7px;
+    bottom: 7px;
+    width: 2px;
+    border: 0 !important;
+    border-radius: 0;
+    background: var(--custom-gradient-color-1, currentColor) !important;
+    opacity: .6;
+    pointer-events: none;
+}
+#app-mount :is([class*="channelTextArea_"], [class*="channelTextArea_"],
+    [class*="activity_"], [class*="activity_"], [class*="activityPanel_"],
+    [class*="activityPanel_"], [class*="activityCard_"], [class*="activityCard_"]) {
+    --background-primary: var(--quiet-canvas) !important;
+    --background-secondary: var(--quiet-canvas) !important;
+    --background-secondary-alt: var(--quiet-canvas) !important;
+    --background-tertiary: var(--quiet-canvas) !important;
+    --background-base-lowest: var(--quiet-canvas) !important;
+    --background-base-lower: var(--quiet-canvas) !important;
+    --background-base-low: var(--quiet-canvas) !important;
+    --background-surface-high: var(--quiet-raised) !important;
+    --background-surface-higher: #272727 !important;
+    --background-surface-highest: #2a2a2a !important;
+    --bg-base-primary: var(--quiet-canvas) !important;
+    --bg-base-secondary: var(--quiet-canvas) !important;
+    --bg-surface-raised: var(--quiet-raised) !important;
+    --channeltextarea-background: var(--quiet-raised) !important;
+    --activity-card-background: var(--quiet-raised) !important;
+    --input-background: var(--quiet-raised) !important;
+    --button-secondary-background: #292929 !important;
+    --button-secondary-background-hover: #333333 !important;
+    --button-secondary-background-active: #262626 !important;
+}
+#app-mount [class*="channelTextArea_"],
+#app-mount [class*="channelTextArea_"] [class*="scrollableContainer_"],
+#app-mount [class*="channelTextArea_"] [class*="themedBackground_"] {
+    background: var(--quiet-raised) !important;
+}
+#app-mount :is([class*="activity_"], [class*="activityPanel_"],
+    [class*="activityCard_"], [class*="gameCollection_"],
+    [class*="collectionContainer_"], [class*="gameCollectionContainer_"]) {
+    background-color: var(--quiet-raised) !important;
+}
+#app-mount :is([class*="activity_"], [class*="activityPanel_"],
+    [class*="activityCard_"]) :is(button, [role="button"][class*="button_"]) {
+    background-color: #292929 !important;
+    color: var(--quiet-text) !important;
+}
+#app-mount :is([class*="activity_"], [class*="activityPanel_"],
+    [class*="activityCard_"]) :is(button, [role="button"][class*="button_"]):hover {
+    background-color: #333333 !important;
+}
+#app-mount {
+    --background-primary: #202020 !important;
+    --background-secondary: #202020 !important;
+    --background-secondary-alt: #202020 !important;
+    --background-tertiary: #202020 !important;
+    --background-floating: #242424 !important;
+    --background-base-lowest: #202020 !important;
+    --background-base-lower: #202020 !important;
+    --background-base-low: #202020 !important;
+    --background-surface-high: #242424 !important;
+    --background-surface-higher: #272727 !important;
+    --background-surface-highest: #2a2a2a !important;
+    --bg-base-primary: #202020 !important;
+    --bg-base-secondary: #202020 !important;
+    --bg-base-tertiary: #202020 !important;
+    --bg-surface-raised: #242424 !important;
+    --bg-surface-overlay: #242424 !important;
+    --bg-overlay-1: #202020 !important;
+    --bg-overlay-2: #202020 !important;
+    --bg-overlay-3: #242424 !important;
+    --bg-overlay-4: #242424 !important;
+    --bg-overlay-5: #272727 !important;
+    --bg-overlay-6: #2a2a2a !important;
+    --bg-overlay-floating: #242424 !important;
+    --channeltextarea-background: #242424 !important;
+    --input-background: #242424 !important;
+    --activity-card-background: #242424 !important;
+    --profile-gradient-primary-color: #202020 !important;
+    --profile-gradient-secondary-color: #202020 !important;
+    --profile-gradient-overlay-color: transparent !important;
+    --profile-gradient-button-color: #292929 !important;
+    --profile-body-background-color: #242424 !important;
+    --profile-body-background-hover: #333333 !important;
+    --profile-body-divider-color: transparent !important;
+    --button-filled-brand-background: #454545 !important;
+    --button-filled-brand-background-hover: #505050 !important;
+    --button-filled-brand-background-active: #3e3e3e !important;
+    --button-secondary-background: #292929 !important;
+    --button-secondary-background-hover: #333333 !important;
+    --button-secondary-background-active: #262626 !important;
+}
+#app-mount {
+    --background-mod-subtle: #242424 !important;
+    --background-mod-normal: #272727 !important;
+    --background-mod-strong: #292929 !important;
+    --background-mod-faint: #222222 !important;
+    --bg-mod-subtle: #242424 !important;
+    --bg-mod-normal: #272727 !important;
+    --bg-mod-strong: #292929 !important;
+    --bg-mod-faint: #222222 !important;
+    --background-modifier-hover: #ffffff08 !important;
+    --background-modifier-active: #ffffff10 !important;
+    --background-modifier-selected: #ffffff14 !important;
+    --background-accent: #292929 !important;
+    --button-filled-secondary-background: #292929 !important;
+    --button-filled-secondary-background-hover: #333333 !important;
+    --button-filled-secondary-background-active: #262626 !important;
+}
+#app-mount :is(.custom-user-profile-theme, [class*="customTheme_"],
+    [class*="userProfileOuter_"][style*="--profile-gradient-primary-color"]),
+#app-mount :is(.custom-user-profile-theme, [class*="customTheme_"],
+    [class*="userProfileOuter_"][style*="--profile-gradient-primary-color"]) {
+    --background-mod-subtle: var(--profile-body-background-color, #00000026) !important;
+    --background-mod-normal: var(--profile-body-background-color, #00000026) !important;
+    --background-mod-strong: var(--profile-body-background-hover, #00000033) !important;
+    --background-mod-faint: var(--profile-body-background-color, #00000016) !important;
+    --bg-mod-subtle: var(--profile-body-background-color, #00000026) !important;
+    --bg-mod-normal: var(--profile-body-background-color, #00000026) !important;
+    --bg-mod-strong: var(--profile-body-background-hover, #00000033) !important;
+    --bg-mod-faint: var(--profile-body-background-color, #00000016) !important;
+    --button-filled-secondary-background: var(--profile-gradient-button-color, #ffffff16) !important;
+    --button-filled-secondary-background-hover: var(--profile-body-background-hover, #ffffff24) !important;
+}
+#app-mount [class*="voiceUser_"] :is([class*="username_"], [class*="name_"]) {
+    color: #969696 !important;
+    -webkit-text-fill-color: #969696 !important;
+    transition: color 120ms ease, -webkit-text-fill-color 120ms ease;
+}
+#app-mount [class*="voiceUser_"] :is([class*="usernameSpeaking_"], [class*="nameSpeaking_"]) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+@media (prefers-reduced-motion: reduce) {
+    #app-mount [class*="voiceUser_"] :is([class*="username_"], [class*="name_"]) {
+        transition: none;
+    }
+}
+#app-mount :is([class*="live_"], [class*="liveSmall_"], [class*="liveLarge_"],
+              [class*="liveBadge_"]) {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    -webkit-text-fill-color: transparent !important;
+    padding: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible !important;
+}
+#app-mount :is([class*="live_"], [class*="liveSmall_"], [class*="liveLarge_"],
+              [class*="liveBadge_"])::before {
+    content: "";
+    display: block;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' fill-rule='evenodd' d='M2 2h12v9H2V2zm1.5 1.5v6h9v-6h-9zM7 11h2v2h3v1H4v-1h3v-2z'/%3E%3C/svg%3E") center / contain no-repeat;
+    filter: drop-shadow(-1px 1px 0 #000000a0) drop-shadow(-2px 1px 1px #00000055);
+    pointer-events: none;
+}
+#app-mount img[class*="avatar"],
+#app-mount [class*="avatar_"] img,
+#app-mount [class*="avatarStack_"] img,
+#app-mount [class*="voiceUser_"] [class*="avatar_"] {
+    border-radius: 0 !important;
+    box-shadow: -1px 0 0 #00000080, -2px 1px 2px #00000050,
+                1px 0 0 #ffffff16 !important;
+}
+#app-mount [class*="voiceUser_"] [class*="avatar_"] {
+    clip-path: none !important;
+    mask: none !important;
+}
+
+:root { --quiet-windows-accent: #8e8cd8; }
+#app-mount :is([class*="live_"], [class*="liveSmall_"], [class*="liveLarge_"],
+              [class*="liveBadge_"]) {
+    background: var(--quiet-windows-accent) !important;
+    width: 22px;
+    min-width: 22px;
+    height: 16px;
+    border-radius: 3px !important;
+}
+#app-mount :is([class*="live_"], [class*="liveSmall_"], [class*="liveLarge_"],
+              [class*="liveBadge_"])::before {
+    width: 14px;
+    height: 12px;
+    background: #ffffff !important;
+}
+@supports (background-color: AccentColor) {
+    #app-mount :is([class*="live_"], [class*="liveSmall_"], [class*="liveLarge_"],
+                  [class*="liveBadge_"]) {
+        background: AccentColor !important;
+    }
+    #app-mount :is([class*="live_"], [class*="liveSmall_"], [class*="liveLarge_"],
+                  [class*="liveBadge_"])::before {
+        background: AccentColorText !important;
+    }
+}
+#app-mount svg[class*="mask_"],
+#app-mount [class*="avatar_"] svg,
+#app-mount [class*="avatarStack_"] svg,
+#app-mount [class*="avatarWrapper_"] svg {
+    overflow: hidden !important;
+    border-radius: 0 !important;
+}
+#app-mount [class*="avatarStack_"] [class*="pointerEvents_"] {
+    pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+}
+#app-mount :is([class*="userProfileOuter_"], [class*="userProfileModalOuter_"],
+    [class*="userPopoutOuter_"], [class*="userPanelOuter_"],
+    [class*="userProfileInner_"], .custom-user-profile-theme),
+#app-mount :is([class*="userProfileOuter_"], [class*="userProfileModalOuter_"],
+    [class*="userPopoutOuter_"], [class*="userPanelOuter_"],
+    [class*="userProfileInner_"], .custom-user-profile-theme) {
+    --quiet-canvas: #202020 !important;
+    --quiet-sidebar: #202020 !important;
+    --quiet-raised: #202020 !important;
+    --profile-gradient-primary-color: #202020 !important;
+    --profile-gradient-secondary-color: #202020 !important;
+    --profile-gradient-overlay-color: transparent !important;
+    --profile-body-background-color: #202020 !important;
+    --profile-body-background-hover: #202020 !important;
+    --profile-gradient-button-color: #202020 !important;
+    --background-primary: #202020 !important;
+    --background-secondary: #202020 !important;
+    --background-secondary-alt: #202020 !important;
+    --background-tertiary: #202020 !important;
+    --background-floating: #202020 !important;
+    --background-base-lowest: #202020 !important;
+    --background-base-lower: #202020 !important;
+    --background-base-low: #202020 !important;
+    --background-surface-high: #202020 !important;
+    --background-surface-higher: #202020 !important;
+    --background-surface-highest: #202020 !important;
+    --background-mod-faint: #202020 !important;
+    --background-mod-subtle: #202020 !important;
+    --background-mod-normal: #202020 !important;
+    --background-mod-strong: #202020 !important;
+    --bg-mod-faint: #202020 !important;
+    --bg-mod-subtle: #202020 !important;
+    --bg-mod-normal: #202020 !important;
+    --bg-mod-strong: #202020 !important;
+    --channeltextarea-background: #202020 !important;
+    --input-background: #202020 !important;
+    --activity-card-background: #202020 !important;
+}
+#app-mount :is([class*="userProfileOuter_"], [class*="userProfileModalOuter_"],
+    [class*="userPopoutOuter_"], [class*="userPanelOuter_"],
+    [class*="userProfileInner_"], .custom-user-profile-theme),
+#app-mount :is([class*="userProfileOuter_"], [class*="userProfileModalOuter_"],
+    [class*="userPopoutOuter_"], [class*="userPanelOuter_"],
+    [class*="userProfileInner_"], .custom-user-profile-theme)
+    :is([class*="userProfileInner_"], [class*="overlayBackground_"],
+        [class*="body_"], [class*="bodyInnerWrapper_"], [class*="scroller_"],
+        [class*="footer_"], [class*="banner_"], [class*="bannerSVGWrapper_"],
+        [class*="activity_"], [class*="activityPanel_"], [class*="activityCard_"],
+        [class*="card_"], [class*="Card_"], [class*="collection_"],
+        [class*="Collection_"], [class*="channelTextArea_"],
+        [class*="scrollableContainer_"], [class*="themedBackground_"]) {
+    background: #202020 !important;
+}
+#app-mount :is([class*="userProfileOuter_"], [class*="userProfileModalOuter_"],
+    [class*="userPopoutOuter_"], [class*="userPanelOuter_"],
+    [class*="userProfileInner_"], .custom-user-profile-theme)
+    :is([class*="banner_"], [class*="bannerSVGWrapper_"]) :is(image, video, img) {
+    visibility: hidden !important;
+}
+#app-mount :is([class*="userProfileOuter_"], [class*="userProfileModalOuter_"],
+    [class*="userPopoutOuter_"], [class*="userPanelOuter_"],
+    [class*="userProfileInner_"], .custom-user-profile-theme)
+    [class*="bannerSVGWrapper_"] :is(rect, path) {
+    fill: #202020 !important;
+}
+#app-mount :is(.user-profile-popout, .user-profile-modal, .user-profile-sidebar,
+    [class*="userProfileOuter_"], [class*="userProfileModalOuter_"],
+    [class*="userPopoutOuter_"], [class*="userPanelOuter_"]) {
+    background: #202020 !important;
+}
+#app-mount :is(.user-profile-popout, .user-profile-modal, .user-profile-sidebar,
+    [class*="userProfileOuter_"], [class*="userProfileModalOuter_"],
+    [class*="userPopoutOuter_"], [class*="userPanelOuter_"]) {
+    --background-mod-subtle: #202020 !important;
+    --background-mod-normal: #202020 !important;
+    --background-mod-strong: #202020 !important;
+    --background-surface-high: #202020 !important;
+    --background-surface-higher: #202020 !important;
+    --background-surface-highest: #202020 !important;
+    --profile-body-background-color: #202020 !important;
+    --profile-gradient-primary-color: #202020 !important;
+    --profile-gradient-secondary-color: #202020 !important;
+}
+#app-mount :is(.user-profile-popout, .user-profile-modal, .user-profile-sidebar,
+    [class*="userProfileOuter_"], [class*="userProfileModalOuter_"],
+    [class*="userPopoutOuter_"], [class*="userPanelOuter_"])
+    :is(div, section, article, header, footer, button, input, textarea):not([class*="avatar" i], [class*="icon" i], [class*="image" i],
+         [class*="artwork" i], [class*="thumbnail" i], [class*="preview" i],
+         [class*="live_"], [class*="liveBadge_"], [class*="liveSmall_"]) {
+    background-color: transparent !important;
+}
+#app-mount :is(.user-profile-popout, .user-profile-modal, .user-profile-sidebar)
+    :is([class*="collection" i], [class*="card_" i], [class*="activity" i]) {
+    background-color: #202020 !important;
+    background-image: none !important;
+}
+#app-mount :is([class*="bar_"], [class*="titleBar_"])
+    [class*="leading_"],
+#app-mount :is([class*="bar_"], [class*="titleBar_"])
+    [class*="title_"] :is(img, svg, [class*="icon_"]),
+#app-mount :is([class*="bar_"], [class*="titleBar_"])
+    [class*="trailing_"] > :not([class*="winButtons_"], [class*="winButton_"],
+        [class*="windowControls_"], [class*="windowButton_"]),
+#app-mount :is([class*="bar_"], [class*="titleBar_"])
+    [class*="trailing_"] [role="button"]:not([class*="winButton_"],
+        [class*="windowButton_"], [class*="winButtons_"] *) {
+    display: none !important;
+}
+
+/* Minimal chat header: hide channel identity, invite, threads, notifications
+   and member-list toggle. Scope to header controls, not the channel sidebar. */
+#app-mount :is([class*="title_"][class*="container_"],
+    [class*="subtitleContainer_"]) [class*="children_"],
+#app-mount :is([class*="title_"][class*="container_"],
+    [class*="subtitleContainer_"]) [class*="toolbar_"]
+    :is([aria-label="Threads"], [aria-label="Notification Settings"],
+        [aria-label="Show Member List"], [aria-label="Hide Member List"],
+        [aria-label="Members"], [aria-label="Invite"], [aria-label="Invite People"],
+        [aria-label="Create Invite"], [aria-label="Notification settings"],
+        [aria-label="Member List"], [aria-label="Список участников"],
+        [aria-label="Показать список участников"], [aria-label="Скрыть список участников"],
+        [aria-label="Настройки уведомлений"], [aria-label="Ветки"],
+        [aria-label="Пригласить"], [aria-label="Пригласить людей"],
+        [aria-label="Создать приглашение"]) {
+    display: none !important;
+}
+
+/* Hide server Events and Server Boosts navigation, without hiding channels. */
+#app-mount :is([class*="sidebar_"], [class*="sidebarList_"])
+    :is([data-list-item-id*="guild-events"], [data-list-item-id*="guild-boost"],
+        [data-list-item-id*="premium-guild"], [data-list-item-id*="server-boost"],
+        [data-list-item-id*="boosts"], [data-list-item-id*="upcoming-events"],
+        [aria-label="Events"], [aria-label="Server Boosts"],
+        [aria-label="События"], [aria-label="Мероприятия"],
+        [aria-label="Бусты сервера"], [aria-label="Усиления сервера"],
+        [class*="boostsContainer_"], [class*="premiumGuildBanner_"],
+        [class*="animatedBannerHoverLayer_"], [class*="channelNotice_"]) {
+    display: none !important;
+}
+
+/* Keep the remaining chat-header controls right-aligned after title removal. */
+#app-mount :is([class*="title_"][class*="container_"],
+    [class*="subtitleContainer_"]) [class*="toolbar_"] {
+    margin-left: auto !important;
+    margin-inline-start: auto !important;
+    flex-shrink: 0;
+}
+
+/* Performance mode: static interface, including plugin overlays. */
+#app-mount, #app-mount *, #app-mount *::before, #app-mount *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}
+/* Static status tint on the actual avatar wrapper, not the larger badge SVG. */
+#app-mount [data-quiet-status] {
+    position: relative !important;
+}
+#app-mount svg[class*="mask_"] rect[mask*="status"] {
+    display: none !important;
+}
+#app-mount [data-quiet-status]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 0;
+    pointer-events: none;
+    z-index: 2;
+    background: linear-gradient(to bottom, transparent 58%, var(--quiet-status-tint, #969696) 100%) !important;
+    opacity: .65 !important;
+    animation: none !important;
+    transition: none !important;
+}
+#app-mount [data-quiet-status="online"] {
+    --quiet-status-tint: #45a366;
+}
+#app-mount [data-quiet-status="idle"] {
+    --quiet-status-tint: #99a4ff;
+}
+#app-mount [data-quiet-status="dnd"] {
+    --quiet-status-tint: #da3e44;
+}
+#app-mount [data-quiet-status="offline"] {
+    --quiet-status-tint: #969696;
+}
+#app-mount [data-quiet-status="streaming"] {
+    --quiet-status-tint: #a970ff;
+}
+/* Low-cost profiles: no blur/compositing filters, retain image content. */
+#app-mount :is(.user-profile-popout, .user-profile-modal, .user-profile-sidebar) {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+#app-mount :is(.user-profile-popout, .user-profile-modal, .user-profile-sidebar)
+    :is([class*="overlayBackground_"], [class*="banner_"], [class*="body_"]) {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+
+
+/* Slim bottom voice bar: shared alignment, neutral surfaces, static controls. */
+#app-mount :is(.container_e131a9, [class*="voicePanel_"],
+    [class*="connectionPanel_"], [class*="voiceControls_"],
+    [class*="callControls_"]) {
+    background-color: #202020 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+#app-mount :is(.container_e131a9, [class*="voicePanel_"],
+    [class*="connectionPanel_"], [class*="voiceControls_"],
+    [class*="callControls_"], [class*="panels_"])
+    :is([class*="connection_"], [class*="actionButtons_"],
+        [class*="connectionStatus_"], [class*="rtcConnectionStatusWrapper_"]) {
+    align-items: center !important;
+    background-color: #202020 !important;
+    gap: 6px;
+    min-height: 28px;
+    padding-block: 2px;
+    box-sizing: border-box;
+}
+#app-mount :is(.container_e131a9, [class*="voicePanel_"],
+    [class*="connectionPanel_"], [class*="voiceControls_"],
+    [class*="callControls_"], [class*="panels_"])
+    [class*="actionButtons_"] {
+    display: flex;
+    align-items: center !important;
+    gap: 6px !important;
+}
+#app-mount :is(.container_e131a9, [class*="voicePanel_"],
+    [class*="connectionPanel_"], [class*="voiceControls_"],
+    [class*="callControls_"], [class*="panels_"])
+    [class*="actionButtons_"] button {
+    height: 26px !important;
+    min-height: 26px !important;
+    padding-block: 0 !important;
+    border-radius: 3px !important;
+    background-color: #202020 !important;
+    box-shadow: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+#app-mount :is(.container_e131a9, [class*="voicePanel_"],
+    [class*="connectionPanel_"], [class*="voiceControls_"],
+    [class*="callControls_"], [class*="panels_"])
+    [class*="actionButtons_"] button:hover {
+    background-color: #2b2b2b !important;
+}
+#app-mount :is(.container_e131a9, [class*="voicePanel_"],
+    [class*="connectionPanel_"], [class*="voiceControls_"],
+    [class*="callControls_"])
+    :is([class*="flex_"], [class*="buttons_"]) {
+    align-items: center;
+    column-gap: 6px;
+}
+#app-mount :is(.container_e131a9, [class*="voicePanel_"],
+    [class*="connectionPanel_"], [class*="voiceControls_"],
+    [class*="callControls_"]) [class*="connection_"] {
+    margin-inline-start: 10px;
+}
+
+/* Voice controls below the chat input; user identity remains in the sidebar. */
+html[data-quiet-bottom-bar] #app-mount .wrapper_e131a9 {
+    position: fixed !important;
+    left: var(--quiet-call-left) !important;
+    top: var(--quiet-call-top) !important;
+    width: var(--quiet-call-width) !important;
+    height: 30px !important;
+    z-index: 5;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #202020 !important;
+}
+html[data-quiet-bottom-bar] #app-mount .container_e131a9 {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    height: 30px;
+    padding: 0 !important;
+    border: 0 !important;
+}
+html[data-quiet-bottom-bar] #app-mount .connection_e131a9 {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 26px !important;
+    height: 26px;
+    gap: 12px;
+}
+html[data-quiet-bottom-bar] #app-mount .actionButtons_e131a9 {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 26px !important;
+    height: 26px;
+    gap: 6px;
+    flex: 0 0 auto;
+}
+html[data-quiet-bottom-bar] #app-mount .actionButtons_e131a9 button {
+    min-width: 40px;
+    width: 44px;
+    flex: 0 0 auto !important;
+}
+html[data-quiet-bottom-bar] #app-mount .inner_e131a9 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+html[data-quiet-bottom-bar] #app-mount .inner_e131a9 [class*="channel_"] {
+    display: none !important;
+}
+html[data-quiet-bottom-bar] #app-mount [class*="chatContent_"] [class*="channelTextArea_"] {
+    margin-bottom: 38px !important;
+}
+html[data-quiet-bottom-bar] #app-mount .container__37e49 .audioButtonParent__5e764 {
+    position: fixed !important;
+    top: var(--quiet-call-top) !important;
+    height: 30px;
+    z-index: 6;
+    background: #202020 !important;
+}
+html[data-quiet-bottom-bar] #app-mount .container__37e49 .audioButtonParent__5e764:nth-child(1) {
+    left: calc(var(--quiet-call-left) + var(--quiet-call-width) - 72px);
+}
+html[data-quiet-bottom-bar] #app-mount .container__37e49 .audioButtonParent__5e764:nth-child(2) {
+    left: calc(var(--quiet-call-left) + var(--quiet-call-width) - 36px);
+}
+html[data-quiet-bottom-bar] #app-mount .container__37e49 .buttonChevron__5e764 {
+    display: none !important;
+}
+html[data-quiet-bottom-bar] #app-mount .container__37e49 .audioButtonParent__5e764 button {
+    width: 30px;
+    height: 26px;
+    border-radius: 3px;
+}
+html[data-quiet-bottom-bar] #app-mount .container__37e49 .audioButtonParent__5e764 button:hover {
+    background: #2b2b2b !important;
+}
+html[data-quiet-bottom-bar] #app-mount .container_e131a9 {
+    box-sizing: border-box;
+    padding-inline-end: 80px !important;
+    width: 100%;
+}
+html[data-quiet-bottom-bar] #app-mount .connection_e131a9 {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+html[data-quiet-bottom-bar] #app-mount .inner_e131a9 {
+    min-width: 0;
+}
+
+/* Sharing adds another child to the RTC wrapper: keep it on the same row. */
+html[data-quiet-bottom-bar] #app-mount .wrapper_e131a9 {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px;
+    box-sizing: border-box;
+    padding-inline-end: 80px !important;
+}
+html[data-quiet-bottom-bar] #app-mount .wrapper_e131a9 > .container_e131a9 {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+    padding-inline-end: 0 !important;
+}
+html[data-quiet-bottom-bar] #app-mount .wrapper_e131a9 > :not(.container_e131a9) {
+    flex: 0 1 140px;
+    min-width: 0;
+    max-width: 140px;
+    height: 26px !important;
+    min-height: 26px !important;
+    margin: 0 !important;
+    padding: 0 6px !important;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    background: #202020 !important;
+}
+html[data-quiet-bottom-bar] #app-mount .wrapper_e131a9 > :not(.container_e131a9)
+    :is([class*="body_"], [class*="content_"], [class*="gameWrapper_"]) {
+    min-width: 0;
+    margin: 0 !important;
+    padding-block: 0 !important;
+    align-items: center;
+}
+html[data-quiet-bottom-bar] #app-mount .wrapper_e131a9 > :not(.container_e131a9)
+    :is([class*="gameIcon_"], [class*="applicationIcon_"], [class*="icon_"]) {
+    width: 18px;
+    height: 18px;
+}
+html[data-quiet-bottom-bar] #app-mount .wrapper_e131a9 > :not(.container_e131a9)
+    :is([class*="title_"], [class*="name_"]) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+
+/* Fixed children must use the viewport, not a transformed sidebar panel. */
+html[data-quiet-bottom-bar] #app-mount :is(.sidebar__5e434,
+    .sidebarList__5e434, .panels__5e434, .container__37e49,
+    .buttons__37e49) {
+    transform: none !important;
+    translate: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    perspective: none !important;
+    contain: none !important;
+    will-change: auto !important;
+}
+/* Screen-sharing status is a sibling of the voice wrapper, not its child. */
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] {
+    position: fixed !important;
+    top: var(--quiet-call-top) !important;
+    left: var(--quiet-call-left) !important;
+    width: 136px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    padding: 0 6px !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    display: flex !important;
+    align-items: center;
+    z-index: 6;
+    background: #202020 !important;
+    border: 0 !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434:has(> [class*="activityPanel_"])
+    .wrapper_e131a9 {
+    left: calc(var(--quiet-call-left) + 144px) !important;
+    width: calc(var(--quiet-call-width) - 144px) !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"]
+    :is([class*="gameIcon_"], [class*="applicationIcon_"], [class*="icon_"]) {
+    width: 18px !important;
+    height: 18px !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"]
+    :is([class*="title_"], [class*="name_"]) {
+    font-size: 11px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* Runtime-tagged containing blocks: viewport positioning stays consistent. */
+html[data-quiet-bottom-bar] [data-quiet-untrap] {
+    transform: none !important;
+    translate: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    perspective: none !important;
+    contain: none !important;
+    will-change: auto !important;
+}
+
+/* Numeric connection latency replaces the signal-bars drawing. */
+#app-mount [data-quiet-ping]::before {
+    content: attr(data-quiet-ping);
+    display: inline-block;
+    color: #b0b0b0;
+    font: 11px Tahoma, sans-serif;
+    margin-inline-end: 8px;
+    white-space: nowrap;
+}
+#app-mount [data-quiet-ping] [class*="ping_"],
+#app-mount [data-quiet-ping] [class*="rtcConnectionStatus_"] svg {
+    display: none !important;
+}
+/* Neutral screen symbol instead of the turquoise application logo. */
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] [class*="gameIcon_"] {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23bcbcbc' fill-rule='evenodd' d='M2 2h12v9H2V2zm1.5 1.5v6h9v-6h-9zM7 11h2v2h3v1H4v-1h3v-2z'/%3E%3C/svg%3E") !important;
+    background: transparent !important;
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+/* Keep both audio controls visible, independent of menu wrapper placement. */
+html[data-quiet-bottom-bar] #app-mount .container__37e49 button:is(
+    [aria-label="Mute"], [aria-label="Unmute"], [aria-label="Deafen"], [aria-label="Undeafen"]) {
+    position: fixed !important;
+    top: var(--quiet-call-top) !important;
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 30px !important;
+    height: 26px !important;
+    z-index: 20;
+    background-color: #202020 !important;
+}
+html[data-quiet-bottom-bar] #app-mount .container__37e49 button:is([aria-label="Mute"], [aria-label="Unmute"]) {
+    left: calc(var(--quiet-call-left) + var(--quiet-call-width) - 72px) !important;
+}
+html[data-quiet-bottom-bar] #app-mount .container__37e49 button:is([aria-label="Deafen"], [aria-label="Undeafen"]) {
+    left: calc(var(--quiet-call-left) + var(--quiet-call-width) - 36px) !important;
+}
+
+/* Long application titles cannot expand the screen-sharing chip. */
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] {
+    overflow: hidden !important;
+    padding-inline-end: 26px !important;
+    flex-wrap: nowrap !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"]
+    :is([class*="body_"], [class*="gameWrapper_"], [class*="info_"], [class*="content_"]) {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: 1 1 0 !important;
+    overflow: hidden !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"]
+    :is([class*="title_"], [class*="name_"], [class*="gameName_"]) {
+    display: block !important;
+    min-width: 0 !important;
+    max-width: 80px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] button {
+    position: absolute !important;
+    right: 4px !important;
+    top: 3px !important;
+    width: 20px !important;
+    height: 24px !important;
+    min-width: 20px !important;
+    flex: 0 0 20px !important;
+}
+
+/* Share only the application's native icon; keep Stop Sharing accessible. */
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] {
+    width: 64px !important;
+    min-width: 64px !important;
+    max-width: 64px !important;
+    padding: 0 4px !important;
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"]
+    :is([class*="title_"], [class*="name_"], [class*="gameName_"], [class*="text_"]) {
+    display: none !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] [class*="gameIcon_"] {
+    content: normal !important;
+    width: 20px !important;
+    height: 20px !important;
+    flex: 0 0 20px !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"]
+    :is([class*="body_"], [class*="gameWrapper_"], [class*="content_"]) {
+    flex: 0 0 auto !important;
+    overflow: visible !important;
+    max-width: none !important;
+    min-width: 0 !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] button {
+    position: static !important;
+    inset: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 26px !important;
+    min-width: 26px !important;
+    height: 26px !important;
+    flex: 0 0 26px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434:has(> [class*="activityPanel_"]) .wrapper_e131a9 {
+    left: calc(var(--quiet-call-left) + 72px) !important;
+    width: calc(var(--quiet-call-width) - 72px) !important;
+}
+
+/* Larger shared-app artwork; hide its small camera/platform overlay. */
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] [class*="gameIcon_"] {
+    width: 26px !important;
+    height: 26px !important;
+    flex: 0 0 26px !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"]
+    :is([class*="gameIconOverlay_"], [class*="iconOverlay_"],
+        [class*="platformIcon_"], [class*="streamIcon_"],
+        [class*="streamingIcon_"], [class*="videoIcon_"], [class*="badge_"],
+        [class*="gameIconWrapper_"] > svg) {
+    display: none !important;
+}
+
+/* Share chip matches the adjacent control rhythm: 30px slots, 6px gap. */
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] {
+    width: 74px !important;
+    min-width: 74px !important;
+    max-width: 74px !important;
+    padding: 0 4px !important;
+    gap: 6px !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"]
+    :is([class*="gameIcon_"], [class*="gameIconWrapper_"], [class*="applicationIcon_"]) {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    max-width: 28px !important;
+    flex: 0 0 28px !important;
+    background-size: contain !important;
+    object-fit: contain !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"]
+    :is([class*="gameIconWrapper_"], [class*="gameIcon_"]) img {
+    width: 28px !important;
+    height: 28px !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] button {
+    width: 30px !important;
+    min-width: 30px !important;
+    height: 26px !important;
+    flex: 0 0 30px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] button svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434:has(> [class*="activityPanel_"]) .wrapper_e131a9 {
+    left: calc(var(--quiet-call-left) + 82px) !important;
+    width: calc(var(--quiet-call-width) - 82px) !important;
+}
+
+/* Audio controls sit beside connection status, replacing the noise toggle. */
+html[data-quiet-bottom-bar] #app-mount .voiceButtonsContainer_e131a9
+    :is([aria-label*="Noise" i], [aria-label*="Krisp" i], [aria-label*="шум" i],
+        [class*="noiseCancellation_"], [class*="noiseSuppression_"]) {
+    display: none !important;
+}
+html[data-quiet-bottom-bar] #app-mount .voiceButtonsContainer_e131a9 {
+    position: relative;
+    padding-inline-start: 72px !important;
+    gap: 6px !important;
+}
+/* Use the noise-toggle's original right-side position, before Disconnect. */
+html[data-quiet-bottom-bar] #app-mount .container__37e49 button:is([aria-label="Mute"], [aria-label="Unmute"]) {
+    left: calc(var(--quiet-call-left) + var(--quiet-call-width) - 108px) !important;
+}
+html[data-quiet-bottom-bar] #app-mount .container__37e49 button:is([aria-label="Deafen"], [aria-label="Undeafen"]) {
+    left: calc(var(--quiet-call-left) + var(--quiet-call-width) - 72px) !important;
+}
+html[data-quiet-bottom-bar] #app-mount .wrapper_e131a9 {
+    padding-inline-end: 108px !important;
+}
+html[data-quiet-bottom-bar] #app-mount .voiceButtonsContainer_e131a9 button[aria-label*="Disconnect" i] {
+    position: fixed !important;
+    top: var(--quiet-call-top) !important;
+    left: calc(var(--quiet-call-left) + var(--quiet-call-width) - 36px) !important;
+    width: 30px !important;
+    height: 26px !important;
+    z-index: 20;
+}
+html[data-quiet-bottom-bar] [data-quiet-untrap] {
+    scale: none !important;
+    rotate: none !important;
+    content-visibility: visible !important;
+}
+/* Reserve the voice row at the viewport bottom, independent of focus shifts. */
+html[data-quiet-bottom-bar] #app-mount .wrapper_e131a9,
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"],
+html[data-quiet-bottom-bar] #app-mount .container__37e49 .audioButtonParent__5e764,
+html[data-quiet-bottom-bar] #app-mount .container__37e49 button:is([aria-label="Mute"], [aria-label="Unmute"], [aria-label="Deafen"], [aria-label="Undeafen"]),
+html[data-quiet-bottom-bar] #app-mount .voiceButtonsContainer_e131a9 button[aria-label*="Disconnect" i] {
+    top: auto !important;
+    bottom: 6px !important;
+}
+
+/* Avatar is now the client-settings entry point; hide the duplicate cog. */
+#app-mount .container__37e49 button:is([aria-label="User Settings"], [aria-label="Настройки пользователя"]) {
+    display: none !important;
+}
+
+/* Media viewer children normally become visible through an entrance animation.
+   Performance mode skips that animation, so render their final state directly. */
+#app-mount [class*="carouselModal_"] .base__5cd44 {
+    opacity: 1 !important;
+}
+
+/* Compact channel symbols; retain Discord's accessible type labels. */
+#app-mount [data-list-item-id^="channels___"] .iconContainer__2ea32 {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+}
+#app-mount [data-list-item-id^="channels___"] .iconContainer__2ea32 > svg {
+    display: none !important;
+}
+#app-mount [data-list-item-id^="channels___"] .iconContainer__2ea32::before {
+    content: "\2022";
+    font-family: "Segoe UI Symbol", "Segoe UI", sans-serif;
+    font-size: 20px;
+    line-height: 1;
+    pointer-events: none;
+}
+#app-mount [data-list-item-id^="channels___"] .iconContainer__2ea32:is([aria-label*="Voice" i], [aria-label*="Stage" i], [aria-label*="голос" i], [aria-label*="трибун" i])::before {
+    content: "\1F79A";
+    font-size: 18px;
+}
+#app-mount [data-list-item-id^="channels___"] .iconContainer__2ea32:is([aria-label*="NSFW" i], [aria-label*="restricted" i], [aria-label*="18+" i], [aria-label*="возраст" i])::before {
+    content: "\26A0\FE0E";
+    font-size: 18px;
+}
+
+/* Simple server-invite and pinned-message glyphs, keeping native buttons. */
+#app-mount :is(.inviteButton_f37cb1, [role="button"][aria-label="Invite to Server"], [role="button"][aria-label="Пригласить на сервер"], .iconWrapper__9293f[aria-label="Pinned Messages"], .iconWrapper__9293f[aria-label="Закреплённые сообщения"]) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+#app-mount :is(.inviteButton_f37cb1, [role="button"][aria-label="Invite to Server"], [role="button"][aria-label="Пригласить на сервер"], .iconWrapper__9293f[aria-label="Pinned Messages"], .iconWrapper__9293f[aria-label="Закреплённые сообщения"]) > svg {
+    display: none !important;
+}
+#app-mount :is(.inviteButton_f37cb1, [role="button"][aria-label="Invite to Server"], [role="button"][aria-label="Пригласить на сервер"])::before {
+    content: "+";
+    font-family: Tahoma, sans-serif;
+    font-size: 24px;
+    line-height: 1;
+    pointer-events: none;
+}
+#app-mount .iconWrapper__9293f:is([aria-label="Pinned Messages"], [aria-label="Закреплённые сообщения"])::before {
+    content: "\2729";
+    font-family: "Segoe UI Symbol", "Segoe UI", sans-serif;
+    font-size: 24px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* Keep the call controls inside a panel at their actual viewport position.
+   The local identity stays independently anchored in the sidebar. */
+html[data-quiet-bottom-bar] #app-mount .panels__5e434:has(.wrapper_e131a9) {
+    position: fixed !important;
+    left: var(--quiet-call-left) !important;
+    right: auto !important;
+    bottom: 6px !important;
+    top: auto !important;
+    width: var(--quiet-call-width) !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #202020 !important;
+    box-shadow: none !important;
+    z-index: 6;
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434:has(.wrapper_e131a9) > .container__37e49 {
+    position: fixed !important;
+    left: 6px !important;
+    right: auto !important;
+    bottom: 6px !important;
+    top: auto !important;
+    width: calc(var(--custom-guild-sidebar-width) - 12px) !important;
+    height: 56px !important;
+    box-sizing: border-box;
+    margin: 0 !important;
+    overflow: visible !important;
+}
+
+/* Remove the member-list Activity heading and its expanded feed rows. */
+#app-mount .membersGroup_c8ffbb:has(> .headerContainer__095fe),
+#app-mount .members_c8ffbb > .content_d125d2 > div:has(.container__0f2e8),
+#app-mount .members_c8ffbb [data-list-item-id*="___content-inventory-feed"] {
+    display: none !important;
+}
+
+/* Server member lists show only members Discord considers online. */
+#app-mount .members_c8ffbb .member_c8ffbb.offline__5d473,
+#app-mount .members_c8ffbb .membersGroup_c8ffbb:has(+ .member_c8ffbb.offline__5d473) {
+    display: none !important;
+}
+
+
+
+/* End the scrollable content when Discord renders the hidden offline tail.
+   Keep virtualization's leading spacer for the online rows above it. */
+#app-mount .members_c8ffbb > .content_d125d2:has(.member_c8ffbb.offline__5d473) {
+    height: auto !important;
+    padding-bottom: 0 !important;
+}
+
+/* Text symbol in place of the server-folder silhouette. */
+#app-mount .folderIcon__48112 {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+#app-mount .folderIcon__48112 > svg {
+    display: none !important;
+}
+#app-mount .folderIcon__48112::before {
+    content: "[ ]";
+    font: 18px/1 Tahoma, sans-serif;
+    white-space: pre;
+    pointer-events: none;
+}
+
+/* Folder brackets use white instead of the folder's custom tint. */
+#app-mount .folderIcon__48112,
+#app-mount .folderIcon__48112::before {
+    color: #ffffff !important;
+}
+
+/* Collapsed folders keep the bracket symbol instead of server thumbnails. */
+#app-mount .folderButton__48112[aria-expanded="false"] .folderPreviewWrapper__48112 {
+    display: none !important;
+}
+#app-mount .folderButton__48112[aria-expanded="false"] .folderIconWrapper__48112 {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: absolute !important;
+    inset: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+#app-mount .folderButton__48112[aria-expanded="false"] .folderIcon__48112 {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* Discord shifts the closed-folder content up one icon height; keep it still. */
+#app-mount .folderButton__48112 .folderButtonContent__48112 {
+    transform: none !important;
+    translate: none !important;
+    height: 48px !important;
+}
+#app-mount .folderButton__48112[aria-expanded="false"] .folderIconWrapper__48112 {
+    position: static !important;
+    width: 48px !important;
+    height: 48px !important;
+}
+
+/* Brackets separate when the server folder is open. */
+#app-mount .folderButton__48112[aria-expanded="false"] .folderIcon__48112::before {
+    content: " [ ] ";
+    white-space: pre;
+}
+#app-mount .folderButton__48112[aria-expanded="true"] .folderIcon__48112::before {
+    content: " ]  [ ";
+    white-space: pre;
+}
+
+
+#app-mount :is(button, [role="button"])[aria-label="Mute"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Mute"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Mute"]::after {
+    content: "M";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Unmute"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Unmute"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Unmute"]::after {
+    content: "M×";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Deafen"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Deafen"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Deafen"]::after {
+    content: "D";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Undeafen"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Undeafen"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Undeafen"]::after {
+    content: "D×";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Disconnect"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Disconnect"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Disconnect"]::after {
+    content: "×";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Stop Streaming"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Stop Streaming"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Stop Streaming"]::after {
+    content: "■";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Open Soundboard"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Open Soundboard"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Open Soundboard"]::after {
+    content: "≋";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Stream Settings"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Stream Settings"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Stream Settings"]::after {
+    content: "≡";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Turn On Camera"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Turn On Camera"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Turn On Camera"]::after {
+    content: "□";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Turn Off Camera"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Turn Off Camera"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Turn Off Camera"]::after {
+    content: "□×";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Share Your Screen"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Share Your Screen"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Share Your Screen"]::after {
+    content: "▣";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="More message options"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="More message options"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="More message options"]::after {
+    content: "+";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Send a gift"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Send a gift"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Send a gift"]::after {
+    content: "◇";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Open GIF picker"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Open GIF picker"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Open GIF picker"]::after {
+    content: "GIF";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 11px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Open sticker picker"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Open sticker picker"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Open sticker picker"]::after {
+    content: "▱";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Apps"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Apps"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Apps"]::after {
+    content: "⁙";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Add Reaction"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Add Reaction"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Add Reaction"]::after {
+    content: "+";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Reply"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Reply"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Reply"]::after {
+    content: "↶";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Forward"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Forward"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Forward"]::after {
+    content: "↗";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Edit"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Edit"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Edit"]::after {
+    content: "/";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Modify Attachment"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Modify Attachment"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Modify Attachment"]::after {
+    content: "/";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="More"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="More"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="More"]::after {
+    content: "···";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Open Chat"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Open Chat"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Open Chat"]::after {
+    content: "…";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Zoom In"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Zoom In"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Zoom In"]::after {
+    content: "+";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Zoom Out"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Zoom Out"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Zoom Out"]::after {
+    content: "−";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+#app-mount :is(button, [role="button"])[aria-label="Open emoji picker"] { position: relative; }
+#app-mount :is(button, [role="button"])[aria-label="Open emoji picker"] svg { opacity: 0 !important; }
+#app-mount :is(button, [role="button"])[aria-label="Open emoji picker"]::after {
+    content: ":)";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 16px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    white-space: pre;
+    pointer-events: none;
+}
+
+/* Call action buttons use tooltip descriptions rather than aria-labels. */
+#app-mount .actionButtons_e131a9 > button {
+    position: relative;
+}
+#app-mount .actionButtons_e131a9 > button svg,
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] button svg {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+#app-mount .actionButtons_e131a9 > button::after,
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] button::after {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 18px/1 "Segoe UI Symbol", Tahoma, sans-serif;
+    color: inherit;
+    pointer-events: none;
+}
+#app-mount .actionButtons_e131a9 > button:nth-of-type(1)::after {
+    content: "\25A1";
+}
+#app-mount .actionButtons_e131a9 > button:nth-of-type(2)::after {
+    content: "\25A3";
+}
+#app-mount .actionButtons_e131a9 > button:nth-of-type(3)::after {
+    content: "\2059";
+}
+html[data-quiet-bottom-bar] #app-mount .panels__5e434 > [class*="activityPanel_"] button::after {
+    content: "\25A0";
+    font-size: 14px;
+}
+
+/* Neutral, compact notification counts in the server rail. */
+#app-mount [class*="guilds_"] .numberBadge__463b7 {
+    background: #202020 !important;
+    color: #ffffff !important;
+    border: 1px solid #747474 !important;
+    border-radius: 2px !important;
+    box-shadow: none !important;
+    font: 10px/14px Tahoma, sans-serif !important;
+    min-width: 16px;
+    height: 16px !important;
+    box-sizing: border-box;
+}
+
+/* Neutral server connection/stream badge, matching notification counts. */
+#app-mount [class*="guilds_"] .upperBadge_cc5dd2 .iconBadge__463b7 {
+    position: relative;
+    background: #202020 !important;
+    color: #ffffff !important;
+    border: 1px solid #747474 !important;
+    border-radius: 2px !important;
+    box-shadow: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    box-sizing: border-box;
+}
+#app-mount [class*="guilds_"] .upperBadge_cc5dd2 .iconBadge__463b7 > svg {
+    visibility: hidden !important;
+}
+#app-mount [class*="guilds_"] .upperBadge_cc5dd2 .iconBadge__463b7::after {
+    content: "\25A3";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 11px/1 "Segoe UI Symbol", sans-serif;
+    color: #ffffff;
+    pointer-events: none;
+}
